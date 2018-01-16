@@ -15,13 +15,13 @@ VOLUME /var/lib/libvirt
 VOLUME /var/log
 VOLUME /run
 
-RUN dnf -y install \
+RUN yum -y install \
 	libvirt \
 	qemu \
 	qemu-kvm \
 	virt-install \
 	pygobject3-base \
-	&& dnf clean all
+	&& yum clean all && rm -rf /var/cache/yum
 
 # Enable libvirtd and virtlockd services.
 RUN systemctl enable libvirtd

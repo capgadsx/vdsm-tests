@@ -1,11 +1,11 @@
-FROM fedora:24
+FROM centos:7
 label maintainer="Carlos Ponce <cponce@alumnos.inf.utfsm.cl>"
 
 ENV container docker
 
-RUN dnf -y update && dnf clean all
+RUN yum -y update && yum clean all && rm -rf /var/cache/yum
 
-RUN dnf -y install systemd && dnf clean all && \
+RUN yum -y install systemd && yum clean all && rm -rf /var/cache/yum && \
 (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
 rm -f /etc/systemd/system/*.wants/*;\
