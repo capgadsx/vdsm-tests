@@ -15,5 +15,5 @@ run pip install tox
 
 # build files
 add buildovirt.sh /root/buildovirt.sh
+add suffixpatch.patch /root/suffixpatch.patch
 workdir /root
-entrypoint ["/root/buildovirt.sh"]
