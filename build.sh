@@ -24,4 +24,5 @@ function clean_old_images()
 build_image "systemd"
 build_image "libvirt"
 build_image "vdsm"
+build_image "builder/27"
 clean_old_images
